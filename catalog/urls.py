@@ -13,13 +13,13 @@ urlpatterns = [
 ]
 
 
-# 續借
+# Renew
 urlpatterns += [
     path('book/<uuid:pk>/renew/', views.renew_book_librarian, name='renew-book-librarian'),
 ]
 
 
-# 作者增刪改
+# Author add, update and delete
 urlpatterns += [
     path('author/create/', views.AuthorCreate.as_view(), name='author-create'),
     path('author/<int:pk>/update/', views.AuthorUpdate.as_view(), name='author-update'),
@@ -27,7 +27,7 @@ urlpatterns += [
 ]
 
 
-# 書本增刪改
+# Book add, update and delete
 urlpatterns += [
     path('book/create/', views.BookCreate.as_view(), name='book-create'),
     path('book/<int:pk>/update/', views.BookUpdate.as_view(), name='book-update'),

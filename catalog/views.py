@@ -69,7 +69,7 @@ class LoanedBooksAllListView(PermissionRequiredMixin, generic.ListView):
         return BookInstance.objects.filter(status__exact='o').order_by('due_back')
     
 
-# 續借表單
+# Renew form
 @permission_required('catalog.can_mark_returned')
 def renew_book_librarian(request, pk):
     book_inst = get_object_or_404(BookInstance, pk=pk)
@@ -90,7 +90,7 @@ def renew_book_librarian(request, pk):
     return render(request, 'catalog/book_renew_librarian.html', {'form': form, 'bookinst': book_inst})
 
 
-# 作者增刪改
+# Author add, update and delete form
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .models import Author
@@ -115,7 +115,7 @@ class AuthorDelete(PermissionRequiredMixin, DeleteView):
     permission_required = 'catalog.can_mark_returned'
 
 
-# 書本增刪改
+# Book add, update and delete form
 class BookCreate(PermissionRequiredMixin, CreateView):
     model = Book
     fields = ['title', 'author', 'summary', 'isbn', 'genre', 'language']
