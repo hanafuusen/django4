@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '865beab2-75f4-4635-8b95-da1e38
 # DEBUG = True
 DEBUG = os.environ.get('DJANGO_BUG', '') != False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['web-production-ba3f9.up.railway.app', '127.0.0.1']
 
 # Application references
 # https://docs.djangoproject.com/en/2.1/ref/settings/#std:setting-INSTALLED_APPS
@@ -139,3 +139,10 @@ STATIC_URL = '/static/'
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+## For example, for a site URL is at 'web-production-3640.up.railway.app'
+## (replace the string below with your own site URL):
+CSRF_TRUSTED_ORIGINS = ['https://web-production-ba3f9.up.railway.app']
+
+# During development/for this tutorial you can instead set just the base URL
+# CSRF_TRUSTED_ORIGINS = ['https://*.railway.app']
